@@ -8,9 +8,6 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-//connect to database
-db();
-
 app.use(
   "/graphql",
   graphqlHTTP({
@@ -20,5 +17,7 @@ app.use(
 );
 
 app.listen(PORT, () => {
+  //connect to database
+  db();
   console.log(`Server running on  port: ${PORT}`);
 });
